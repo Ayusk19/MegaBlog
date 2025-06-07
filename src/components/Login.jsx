@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
-import React , {useState} from 'react';
-import { data, Link, useNavigate } from 'react-router-dom';
-import { login as authLogin, login} from '../store/authSlice';
+
+import { useState } from 'react';
+import {  Link, useNavigate } from 'react-router-dom';
+import { login as authLogin} from '../store/authSlice';
 import {Button, Input, Logo} from './index';
 import { useDispatch } from 'react-redux';
 import authService from "../lib/appwrite";
@@ -15,7 +15,7 @@ function Login() {
     const [error, setError] = useState("");
 
     
-    const  Login = async(data) => {
+    const handleLogin = async (data) => {
         setError("")
         try {
           const session =  await authService.login(data)
@@ -54,7 +54,7 @@ function Login() {
 
                     {error && <p className='text-red-500 text-center'>{error}</p>}
 
-                    <form onSubmit={handleSubmit(login)} className='mt-8'>
+                    <form onSubmit={handleSubmit(handleLogin)} className='mt-8'>
                         <div className='space-y-5'>
                             <Input 
                             label="Email: "

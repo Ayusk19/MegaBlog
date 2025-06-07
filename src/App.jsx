@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import authService from "./lib/appwrite";
 import {login, logout} from "./store/authSlice";
 import {Footer, Header} from "./components"
+import { Outlet } from "react-router-dom";
 
 function App() {
 
@@ -35,7 +36,7 @@ return !Loading ? (
     <Header />
     <main>
 
-    {/* <Outlet /> */}
+    <Outlet />
 
     </main>
     <Footer />
